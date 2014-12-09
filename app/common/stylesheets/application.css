@@ -1,0 +1,43 @@
+.supersonic-navbar-mock {
+  background-color: #5ca0b9 !important;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.button.button-positive{
+  background-color: #FD6220;
+  border-color: #d9541b;
+}
+
+.mg-title{
+    color: #2C5A71;
+}
+
+/*********************************
+ * Sensors / Geolocation
+ ********************************/
+
+.google-maps-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66%;
+    background-color: #f4f4f4;
+}
+
+.google-maps-container > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.geolocation-table tr td:first-child {
+    padding-right: 10px;
+    text-align: right;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.geolocation-table tr td:last-child {
+    padding-left: 10px;
+}

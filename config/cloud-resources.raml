@@ -1,0 +1,114 @@
+#%RAML 0.8
+title: Steroids Data
+mediaType: application/json
+baseUri: https://rest-api.appgyver.com/v1/
+
+traits:
+  - securedBySteroidsApiKey:
+      headers:
+        steroidsApiKey:
+          type: string
+          example: exampleapikey
+          default: b0383a46a37bea53da7b3304c6874da0a339366501b05a06ee50388b438789f2
+        steroidsAppId:
+          type: integer
+          example: 1234
+          default: 31500
+
+schemas:
+  - Contractors: '{"$schema":"http://json-schema.org/schema","title":"Contractor collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Contractor representation","properties":{"Company Name":{"type":"string"},"Contact Name":{"type":"string"},"Phone Number":{"type":"string"},"icon":{"type":"string"},"lat":{"type":"string"},"long":{"type":"string"}},"required":[]}}}}'
+  - Contractor: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Contractor representation","properties":{"object":{"type":"object","properties":{"Company Name":{"type":"string"},"Contact Name":{"type":"string"},"Phone Number":{"type":"string"},"icon":{"type":"string"},"lat":{"type":"string"},"long":{"type":"string"}},"required":[]}}}'
+
+resourceTypes:
+  - dolan_db_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "objects"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g cars
+      post:
+        description: |
+          {
+            "action": "create",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName | !singularize>> # e.g. car
+
+  - dolan_db_member:
+      usage: This resourceType should be used for any built.io item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g. car
+      put:
+        description: |
+          {
+            "action": "update",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+      
+
+
+/Contractor:
+  description: |
+    {
+      "resourceName": "Contractor",
+      "identifierKey": "id"
+    }
+  type: dolan_db_collection
+  /{id}:
+    type: dolan_db_member
+
+

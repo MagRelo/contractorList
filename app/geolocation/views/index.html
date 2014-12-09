@@ -1,0 +1,83 @@
+<div ng-controller="GeolocationController">
+
+    <super-navbar>
+        <super-navbar-title>
+            Contractor Map
+        </super-navbar-title>
+    </super-navbar>
+
+    <kitchensink-google-maps position="position"></kitchensink-google-maps>
+
+    <div class="padding">
+        <!--<div class="loading-message" ng-show="isWatchingPosition || isGettingPosition">-->
+            <!--<img src="/icons/loading.svg" height="26" alt=""> {{isWatchingPosition? "Continuously watching position..." : "Getting position..."}}-->
+        <!--</div>-->
+        <!--<div class="loading-message" ng-hide="isWatchingPosition || isGettingPosition">-->
+            <!--Ready!-->
+        <!--</div>-->
+
+        <h3>Contractor List</h3>
+
+        <div class="list">
+            <div class="item item-button-right" ng-repeat="contractor in contractors">
+
+                {{contractor['Company Name']}}
+
+                <button class="button button-positive" ng-click="mapContractor(contractor, $index)" ng-hide="$index == viewIndex">
+                    <i class="icon super-pinpoint"></i>
+                </button>
+
+                <div ng-show="$index == viewIndex">
+                    <p>Contact: {{contractor['Contact Name']}}</p>
+                    <button class="button button-block button-balanced" ng-click="callContractor(contractor)">
+                        Call Now
+                        <i class="icon super-ios7-telephone"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <h3>My Location</h3>
+        <button ng-click="getPosition()" class="button button-block button-positive" ng-disabled="isGettingPosition || isWatchingPosition">
+            Get position
+        </button>
+
+        <button ng-click="toggleWatch()" class="button button-block" ng-class="{'button-positive': !isWatchingPosition, 'button-assertive': isWatchingPosition}">
+            {{isWatchingPosition ? "Stop watching position" : "Watch for changes in position"}}
+        </button>
+
+        <table class="geolocation-table">
+            <tr>
+                <td>Latitude</td>
+                <td>{{position.latitude}}</td>
+            </tr>
+            <tr>
+                <td>Longitude</td>
+                <td>{{position.longitude}}</td>
+            </tr>
+            <tr>
+                <td>Accuracy</td>
+                <td>{{position.accuracy}} m</td>
+            </tr>
+            <tr ng-hide="position.altitude == undefined">
+                <td>Altitude</td>
+                <td>{{position.altitude}} m</td>
+            </tr>
+            <tr ng-hide="position.altitudeAccuracy == undefined">
+                <td>Alt. accuracy</td>
+                <td>{{position.altitudeAccuracy}} m</td>
+            </tr>
+            <tr ng-hide="position.heading == undefined">
+                <td>Heading</td>
+                <td>{{position.heading}}</td>
+            </tr>
+            <tr ng-hide="position.speed == undefined">
+                <td>Speed</td>
+                <td>{{position.speed}} m/s</td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
