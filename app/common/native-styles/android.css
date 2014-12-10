@@ -46,3 +46,7 @@ tab-bar-item#welcome {
 tab-bar-item#list {
     background-image: url(icons/construction4.svg);
 }
+
+tab-bar-item#camera {
+    background-image: url(icons/camera44.svg);
+}

@@ -1,0 +1,22 @@
+<div ng-controller="IndexController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Index
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+      <h1> Camera Test </h1>
+
+      <button class="button button-block button-balanced" ng-click="takePicture()">
+          Take a picture
+          <i class="icon super-camera"></i>
+      </button>
+
+      <img ng-src="{{imageURI}}">
+
+       <p>{{imageURI}}</p>
+  </div>
+
+</div>

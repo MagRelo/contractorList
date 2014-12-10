@@ -19,6 +19,11 @@ module.exports =
       id: "list"
       location: "contractor#index"
     }
+    {
+      title: "Camera"
+      id: "camera"
+      location: "camera#index"
+    }
   ]
 
 #  rootView:
@@ -34,14 +39,14 @@ module.exports =
       location: "example#using-the-scanner"
     }
   ]
-
-  # drawers:
-  #   left:
-  #     id: "leftDrawer"
-  #     location: "example#drawer"
-  #     showOnAppLoad: false
-  #   options:
-  #     animation: "swingingDoor"
+#
+#  drawers:
+#     left:
+#       id: "leftDrawer"
+#       location: "welcome#index"
+#       showOnAppLoad: false
+#     options:
+#       animation: "swingingDoor"
   #
   # initialView:
   #   id: "initialView"

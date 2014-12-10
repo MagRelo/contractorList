@@ -27,6 +27,10 @@ angular
     });
 
     $scope.remove = function (id) {
+
+      //give us a shake
+      supersonic.device.vibrate();
+
       $scope.showSpinner = true;
       $scope.contractor.delete().then( function () {
         supersonic.ui.layers.pop();

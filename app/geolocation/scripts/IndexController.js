@@ -50,6 +50,7 @@ angular.module('geolocation').controller('GeolocationController', function($scop
   $scope.isWatchingPosition = false;
   $scope.getPosition = function() {
 
+
     //close open cards
     $scope.viewIndex = -1;
 
