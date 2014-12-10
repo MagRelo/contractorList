@@ -9,6 +9,14 @@
   background-color: #FD6220;
   border-color: #d9541b;
 }
+.button.button-assertive{
+    background-color: #5D1700;
+    border-color: #491200;
+}
+.button.button-balanced{
+    background-color: #2C5A71;
+    border-color: #234759;
+}
 
 .mg-title{
     color: #2C5A71;

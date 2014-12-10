@@ -31,14 +31,14 @@ angular.module('geolocation').controller('GeolocationController', function($scop
 
     var options = {
       message: "Make a telephone call to " + contractor['Contact Name'] + " at " + contractor['Company Name'] + "?",
-      buttonLabels: ["Call Now", "Cancel"]
+      buttonLabels: ["Cancel", "Call Now"]
     };
 
     supersonic.ui.dialog.confirm("Call " + contractor['Company Name'], options).then(function(index) {
       if (index == 0) {
-        supersonic.logger.log("They called!");
-      } else {
         supersonic.logger.log("No call :(");
+      } else {
+        supersonic.logger.log("They called!");
       }
     });
 
