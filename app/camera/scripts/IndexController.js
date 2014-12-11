@@ -21,7 +21,7 @@ angular
       });
     };
 
-    var gotFileObject, imageUriReceived,fileError;
+    var fileError, gotFileObject, imageUriReceived;
 
     fileError = function(error) {
       $scope.cordovaError = "Cordova error code: " + error.code;
@@ -30,7 +30,6 @@ angular
 
     gotFileObject = function(file) {
       var fileMoved;
-
       steroids.on("ready", function() {
         var fileName, targetDirURI;
         targetDirURI = "file://" + steroids.app.absoluteUserFilesPath;
@@ -41,12 +40,18 @@ angular
       });
 
       return fileMoved = function(file) {
+
+        supersonic.logger.debug('fileMoved() hit: ' + file.name);
+
         $scope.imageSrc = "/" + file.name + "?" + ((new Date()).getTime());
         return $scope.$apply();
       };
     };
 
     imageUriReceived = function(imageURI) {
+
+      supersonic.logger.debug('imageUriReceived() hit: ' + imageURI);
+
       return window.resolveLocalFileSystemURI(imageURI, gotFileObject, fileError);
     };
 
