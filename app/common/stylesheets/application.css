@@ -49,3 +49,11 @@
 .geolocation-table tr td:last-child {
     padding-left: 10px;
 }
+
+
+
+.image-test{
+    width: 100%;
+    height: 300px;
+    border: dashed 1px #485659;
+}

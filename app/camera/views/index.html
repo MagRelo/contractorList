@@ -8,16 +8,16 @@
 
   <div class="padding">
 
+      <img class="image-test" ng-src="{{imageSrc}}">
+      <hr>
+
       <button class="button button-block button-balanced" ng-click="takePicture()">
           Take a picture
           <i class="icon super-camera"></i>
       </button>
 
-      <p>{{cordovaError}}</p>
+      <p ng-show="cordovaError">Error: {{cordovaError}}</p>
 
-      <img ng-src="{{imageSrc}}" style="width:200px; height: 200px">
-
-      <p>imageSrc: {{imageSrc}}</p>
 
   </div>
 
