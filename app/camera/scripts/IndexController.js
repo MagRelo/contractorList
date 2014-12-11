@@ -40,21 +40,13 @@ angular
       });
 
       return fileMoved = function(file) {
-
-        supersonic.logger.debug('fileMoved() hit: ' + file.name);
-
         $scope.imageSrc = "/" + file.name + "?" + ((new Date()).getTime());
         return $scope.$apply();
       };
     };
 
     imageUriReceived = function(imageURI) {
-
-      supersonic.logger.debug('imageUriReceived() hit: ' + imageURI);
-
       return window.resolveLocalFileSystemURI(imageURI, gotFileObject, fileError);
     };
-
-
 
   });
