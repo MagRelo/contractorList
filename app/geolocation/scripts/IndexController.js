@@ -50,13 +50,13 @@ angular.module('geolocation').controller('GeolocationController', function($scop
   $scope.isWatchingPosition = false;
   $scope.getPosition = function() {
 
-
     //close open cards
     $scope.viewIndex = -1;
 
     if ($scope.isGettingPosition || $scope.isWatchingPosition) {
       return;
     }
+
     $scope.isGettingPosition = true;
     return supersonic.device.geolocation.getPosition().then(function(position) {
       return $scope.position = position.coords;
@@ -64,6 +64,7 @@ angular.module('geolocation').controller('GeolocationController', function($scop
     })["finally"](function() {
       return $scope.isGettingPosition = false;
     });
+
   };
   $scope.startWatchingPosition = function() {
 

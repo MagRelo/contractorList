@@ -1,0 +1,57 @@
+<div ng-controller="IndexController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Weather
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+      <h1 class="text-center mg-title">Local Weather</h1>
+
+      <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+
+      <div class="padding card" ng-show="weather">
+
+          <table class="geolocation-table">
+              <tr>
+                  <td>Station</td>
+                  <td>{{weather.name}}</td>
+              </tr>
+              <tr>
+                  <td>Conditions</td>
+                  <td>{{weather.weather[0].main}} - {{weather.weather[0].description}} </td>
+              </tr>
+              <tr>
+                  <td>Temperature </td>
+                  <td>{{weather.main.temp}}&deg;</td>
+              </tr>
+              <tr>
+                  <td>Wind</td>
+                  <td>{{weather.wind.speed}} mph {{weather.wind.deg | windDirection}}</td>
+              </tr>
+              <tr>
+                  <td>Sunrise</td>
+                  <td>{{weather.sys.sunrise * 1000| date:'h:mm a'}}</td>
+              </tr>
+              <tr>
+                  <td>Sunset</td>
+                  <td>{{weather.sys.sunset * 1000| date:'h:mm a'}}</td>
+              </tr>
+              <tr>
+                  <td>Last Update</td>
+                  <td>{{weather.dt * 1000| date:'h:mm a'}}</td>
+              </tr>
+          </table>
+      </div>
+
+      <button class="button button-block button-positive" ng-hide="showSpinner" ng-click="getWeatherData()">
+          <span ng-show="!weather">Get </span>
+          <span ng-show="weather">Refresh </span>
+          Data
+          <i class="icon super-ios7-refresh"></i>
+      </button>
+
+  </div>
+
+</div>

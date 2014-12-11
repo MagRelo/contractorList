@@ -2,21 +2,21 @@
 
   <super-navbar>
     <super-navbar-title>
-      Index
+        Camera Test
     </super-navbar-title>
   </super-navbar>
 
   <div class="padding">
-      <h1> Camera Test </h1>
 
       <button class="button button-block button-balanced" ng-click="takePicture()">
           Take a picture
           <i class="icon super-camera"></i>
       </button>
 
-      <img ng-src="{{imageURI}}">
+      <p>{{cordovaError}}</p>
 
-       <p>{{imageURI}}</p>
+      <img ng-src="{{imageSrc}}" style="width:200px; height: 200px">
+
   </div>
 
 </div>

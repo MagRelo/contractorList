@@ -20,10 +20,14 @@ navigation-bar button, navigation-bar back-bar-button {
 }
 
 tab-bar {
-  border-top: 1px #FD6220 solid;
   background-color: #485659;
   color: #F7F8DB;
 }
+
+/*tab-bar {*/
+    /*background-color: #34495e;*/
+    /*color: #1abc9c;*/
+/*}*/
 
 tab-bar tab-bar-item {
   /*color: #FD6220;*/
@@ -49,4 +53,8 @@ tab-bar-item#list {
 
 tab-bar-item#camera {
     background-image: url(icons/camera44.svg);
+}
+
+tab-bar-item#weather {
+    background-image: url(icons/thermometer56.svg);
 }

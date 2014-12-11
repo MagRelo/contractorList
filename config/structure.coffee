@@ -24,6 +24,11 @@ module.exports =
       id: "camera"
       location: "camera#index"
     }
+    {
+      title: "Weather"
+      id: "weather"
+      location: "weather#index"
+    }
   ]
 
 #  rootView:
